@@ -17,27 +17,27 @@ namespace lvmendes.Servicos.Servicos
         }
         public string Atualizar(Usuario o)
         {
-            return this.Atualizar(o);
+            return this.repositorio.Atualizar(o);
         }
 
         public Usuario Carregar(long i)
         {
-            return this.Carregar(i);
+            return this.repositorio.Carregar(i);
         }
 
         public string Delete(Usuario o)
         {
-            return this.Delete(o);
+            return this.repositorio.Delete(o);
         }
 
         public IList<Usuario> Listar()
         {
-            return this.Listar();
+            return this.repositorio.Listar();
         }
 
         public string Salvar(Usuario o)
         {
-            return this.Salvar(o);
+            return this.repositorio.Salvar(o);
         }
     }
 }

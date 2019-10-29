@@ -2,7 +2,9 @@
 using lvmendes.Repositorios.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Transactions;
 
 namespace Lvmendes.Repositorios.Repositorios
 {
@@ -25,12 +27,43 @@ namespace Lvmendes.Repositorios.Repositorios
 
         public IList<Sistema> Listar()
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var context = new EFDataContext())
+                {
+                    return context.Sistemas
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
         }
 
         public string Salvar(Sistema o)
         {
-            throw new NotImplementedException();
+            try
+            {
+             
+                    using (EFDataContext context = new EFDataContext())
+                    {
+                        context.Sistemas.Add(o);
+                        context.SaveChanges();
+                        return "OK";
+                    }
+               
+              
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
         }
     }
 }

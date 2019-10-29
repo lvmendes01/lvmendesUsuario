@@ -18,27 +18,27 @@ namespace lvmendes.Servicos.Servicos
         }
         public string Atualizar(Sistema o)
         {
-            return this.Atualizar(o);
+            return this.repositorio.Atualizar(o);
         }
 
         public Sistema Carregar(long i)
         {
-            return this.Carregar(i);
+            return this.repositorio.Carregar(i);
         }
 
         public string Delete(Sistema o)
         {
-            return this.Delete(o);
+            return this.repositorio.Delete(o);
         }
 
         public IList<Sistema> Listar()
         {
-            return this.Listar();
+            return this.repositorio.Listar();
         }
 
         public string Salvar(Sistema o)
         {
-            return this.Salvar(o);
+            return this.repositorio.Salvar(o);
         }
     }
 }

@@ -4,15 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using lvmendes.Entidades;
 using lvmendes.Servicos.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LoginApi.Controllers
+namespace ApiLogin.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class SistemaController : ControllerBase
     {
+
         ISistemaServico servico;
 
         public SistemaController(ISistemaServico _servico)
@@ -20,27 +20,27 @@ namespace LoginApi.Controllers
             servico = _servico;
         }
 
-        // GET: api/Sistema
+        // GET api/values
         [HttpGet]
-        public IEnumerable<Sistema> Get()
+        public ActionResult<IEnumerable<Sistema>> Get()
         {
             return servico.Listar().ToList();
         }
 
-        // GET: api/Sistema/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public ActionResult<string> Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Sistema
+        // POST api/values
         [HttpPost]
-        public void Post([FromBody] Sistema value)
+        public void Post([FromBody] string value)
         {
             try
             {
-                servico.Salvar(value);
+                servico.Salvar(new Sistema { Nome = "SISTEMA" });
             }
             catch (Exception ex)
             {
@@ -49,13 +49,13 @@ namespace LoginApi.Controllers
             }
         }
 
-        // PUT: api/Sistema/5
+        // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE: api/ApiWithActions/5
+        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
