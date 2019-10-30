@@ -7,15 +7,15 @@ using System.Text;
 
 namespace Lvmendes.Repositorios.Repositorios
 {
-    public class PerfilRepositorio : IPerfilRepositorio
+    public class AutorizacoesRepositorio : IAutorizacaoRepositorio
     {
-        public string Atualizar(Perfil o)
+        public string Atualizar(Autorizacoes o)
         {
             try
             {
                 using (var context = new EFDataContext())
                 {
-                    context.Perfils.Attach(o);
+                    context.Autorizacoes.Attach(o);
                     context.Entry(o).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     context.SaveChanges();
                     return "Ok";
@@ -29,13 +29,13 @@ namespace Lvmendes.Repositorios.Repositorios
             }
         }
 
-        public Perfil Carregar(long i)
+        public Autorizacoes Carregar(long i)
         {
             try
             {
                 using (var context = new EFDataContext())
                 {
-                    return context.Perfils.SingleOrDefault(s => s.Id == i);
+                    return context.Autorizacoes.SingleOrDefault(s => s.Id == i);
                 }
             }
             catch (Exception ex)
@@ -45,13 +45,13 @@ namespace Lvmendes.Repositorios.Repositorios
             }
         }
 
-        public string Delete(Perfil o)
+        public string Delete(Autorizacoes o)
         {
             try
             {
                 using (var context = new EFDataContext())
                 {
-                    context.Perfils.Remove(o);
+                    context.Autorizacoes.Remove(o);
                     context.SaveChanges();
                     return "Ok";
 
@@ -64,13 +64,13 @@ namespace Lvmendes.Repositorios.Repositorios
             }
         }
 
-        public IList<Perfil> Listar()
+        public IList<Autorizacoes> Listar()
         {
             try
             {
                 using (var context = new EFDataContext())
                 {
-                    return context.Perfils
+                    return context.Autorizacoes
                         .ToList();
                 }
             }
@@ -82,14 +82,14 @@ namespace Lvmendes.Repositorios.Repositorios
 
         }
 
-        public string Salvar(Perfil o)
+        public string Salvar(Autorizacoes o)
         {
             try
             {
 
                 using (EFDataContext context = new EFDataContext())
                 {
-                    context.Perfils.Add(o);
+                    context.Autorizacoes.Add(o);
                     context.SaveChanges();
                     return "OK";
                 }

@@ -13,5 +13,6 @@ namespace lvmendes.Entidades
         public Int64 Id { get; set; }
 
         public Sistema Sistema { get; set; }
+        public string Nome { get; set; }
     }
 }

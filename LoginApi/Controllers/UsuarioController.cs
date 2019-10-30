@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using lvmendes.Entidades;
 using lvmendes.Servicos.Interfaces;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,36 +11,36 @@ namespace LoginApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SistemaController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
-        ISistemaServico servico;
+        IUsuarioServico servico;
 
-        public SistemaController(ISistemaServico _servico)
+        public UsuarioController(IUsuarioServico _servico)
         {
             servico = _servico;
         }
 
         /// <summary>
-        /// Lista de Sistemas Disponivel
+        /// Lista de Usuarios Disponivel
         /// </summary>
         [HttpGet]
         [Route("Listar")]
-        public IEnumerable<Sistema> Listar()
+        public IEnumerable<Usuario> Listar()
         {
             return servico.Listar();
         }
         /// <summary>
-        /// Salvar sistemas
+        /// Salvar Usuarios
         /// </summary>
         [HttpPost]
         [Route("Salvar")]
-        public ActionResult Salvar([FromBody]Sistema value)
+        public ActionResult Salvar([FromBody]Usuario value)
         {
-           return Ok(servico.Salvar(value));
+            return Ok(servico.Salvar(value));
 
         }
         /// <summary>
-        /// Carregar Sistema
+        /// Carregar Usuario
         /// </summary>
         [HttpPost]
         [Route("Carregar")]
@@ -50,21 +49,21 @@ namespace LoginApi.Controllers
             return Ok(servico.Carregar(id));
         }
         /// <summary>
-        /// Atualizar Sistema
+        /// Atualizar Usuario
         /// </summary>
         [HttpPost]
         [Route("Atualizar")]
-        public ActionResult Atualizar([FromBody]Sistema objeto)
+        public ActionResult Atualizar([FromBody]Usuario objeto)
         {
             return Ok(servico.Atualizar(objeto));
 
         }
         /// <summary>
-        /// Deletar Sistema
+        /// Deletar Usuario
         /// </summary>
         [HttpPost]
         [Route("Delete")]
-        public ActionResult Delete([FromBody]Sistema objeto)
+        public ActionResult Delete([FromBody]Usuario objeto)
         {
             return Ok(servico.Delete(objeto));
 

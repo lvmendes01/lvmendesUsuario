@@ -12,17 +12,57 @@ namespace Lvmendes.Repositorios.Repositorios
     {
         public string Atualizar(Sistema o)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var context = new EFDataContext())
+                {                    
+                    context.Sistemas.Attach(o);
+                    context.Entry(o).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    context.SaveChanges();
+                    return "Ok";
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public Sistema Carregar(long i)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var context = new EFDataContext())
+                {
+                    return context.Sistemas.SingleOrDefault(s => s.Id == i);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public string Delete(Sistema o)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var context = new EFDataContext())
+                {
+                     context.Sistemas.Remove(o);
+                    context.SaveChanges();
+                    return "Ok";
+                      
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public IList<Sistema> Listar()

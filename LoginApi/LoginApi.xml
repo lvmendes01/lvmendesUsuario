@@ -4,5 +4,80 @@
         <name>LoginApi</name>
     </assembly>
     <members>
+        <member name="M:LoginApi.Controllers.PerfilController.Listar">
+            <summary>
+            Lista de Perfils Disponivel
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.PerfilController.Salvar(lvmendes.Entidades.Perfil)">
+            <summary>
+            Salvar Perfils
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.PerfilController.Carregar(System.Int64)">
+            <summary>
+            Carregar Perfil
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.PerfilController.Atualizar(lvmendes.Entidades.Perfil)">
+            <summary>
+            Atualizar Perfil
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.PerfilController.Delete(lvmendes.Entidades.Perfil)">
+            <summary>
+            Deletar Perfil
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.SistemaController.Listar">
+            <summary>
+            Lista de Sistemas Disponivel
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.SistemaController.Salvar(lvmendes.Entidades.Sistema)">
+            <summary>
+            Salvar sistemas
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.SistemaController.Carregar(System.Int64)">
+            <summary>
+            Carregar Sistema
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.SistemaController.Atualizar(lvmendes.Entidades.Sistema)">
+            <summary>
+            Atualizar Sistema
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.SistemaController.Delete(lvmendes.Entidades.Sistema)">
+            <summary>
+            Deletar Sistema
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.UsuarioController.Listar">
+            <summary>
+            Lista de Usuarios Disponivel
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.UsuarioController.Salvar(lvmendes.Entidades.Usuario)">
+            <summary>
+            Salvar Usuarios
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.UsuarioController.Carregar(System.Int64)">
+            <summary>
+            Carregar Usuario
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.UsuarioController.Atualizar(lvmendes.Entidades.Usuario)">
+            <summary>
+            Atualizar Usuario
+            </summary>
+        </member>
+        <member name="M:LoginApi.Controllers.UsuarioController.Delete(lvmendes.Entidades.Usuario)">
+            <summary>
+            Deletar Usuario
+            </summary>
+        </member>
     </members>
 </doc>

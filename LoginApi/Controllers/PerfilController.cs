@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using lvmendes.Entidades;
 using lvmendes.Servicos.Interfaces;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,36 +11,36 @@ namespace LoginApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SistemaController : ControllerBase
+    public class PerfilController : ControllerBase
     {
-        ISistemaServico servico;
+        IPerfilServico servico;
 
-        public SistemaController(ISistemaServico _servico)
+        public PerfilController(IPerfilServico _servico)
         {
             servico = _servico;
         }
 
         /// <summary>
-        /// Lista de Sistemas Disponivel
+        /// Lista de Perfils Disponivel
         /// </summary>
         [HttpGet]
         [Route("Listar")]
-        public IEnumerable<Sistema> Listar()
+        public IEnumerable<Perfil> Listar()
         {
             return servico.Listar();
         }
         /// <summary>
-        /// Salvar sistemas
+        /// Salvar Perfils
         /// </summary>
         [HttpPost]
         [Route("Salvar")]
-        public ActionResult Salvar([FromBody]Sistema value)
+        public ActionResult Salvar([FromBody]Perfil value)
         {
-           return Ok(servico.Salvar(value));
+            return Ok(servico.Salvar(value));
 
         }
         /// <summary>
-        /// Carregar Sistema
+        /// Carregar Perfil
         /// </summary>
         [HttpPost]
         [Route("Carregar")]
@@ -50,21 +49,21 @@ namespace LoginApi.Controllers
             return Ok(servico.Carregar(id));
         }
         /// <summary>
-        /// Atualizar Sistema
+        /// Atualizar Perfil
         /// </summary>
         [HttpPost]
         [Route("Atualizar")]
-        public ActionResult Atualizar([FromBody]Sistema objeto)
+        public ActionResult Atualizar([FromBody]Perfil objeto)
         {
             return Ok(servico.Atualizar(objeto));
 
         }
         /// <summary>
-        /// Deletar Sistema
+        /// Deletar Perfil
         /// </summary>
         [HttpPost]
         [Route("Delete")]
-        public ActionResult Delete([FromBody]Sistema objeto)
+        public ActionResult Delete([FromBody]Perfil objeto)
         {
             return Ok(servico.Delete(objeto));
 

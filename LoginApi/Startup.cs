@@ -40,14 +40,14 @@ namespace LoginApi
                     TermsOfService = new Uri("https://example.com/terms"),
                     Contact = new Microsoft.OpenApi.Models.OpenApiContact
                     {
-                        Name = "Shayne Boyer",
+                        Name = "linkedin",
                         Email = string.Empty,
-                        Url = new Uri("https://twitter.com/spboyer"),
+                        Url = new Uri("https://www.linkedin.com/in/leonardo-vinicius-mendes-6379b342/"),
                     },
                     License = new Microsoft.OpenApi.Models.OpenApiLicense
                     {
-                        Name = "Use under LICX",
-                        Url = new Uri("https://example.com/license"),
+                        Name = "github",
+                        Url = new Uri("https://github.com/lvmendes01"),
                     }
                 });
             });
@@ -55,8 +55,10 @@ namespace LoginApi
             services.AddTransient<ISistemaServico, SistemaServico>();
             services.AddTransient<IPerfilServico, PerfilServico>();
             services.AddTransient<IUsuarioServico, UsuarioServico>();
+            services.AddTransient<IAutorizacaoServico, AutorizacoesServico>();
 
 
+            services.AddTransient<IAutorizacaoRepositorio, AutorizacoesRepositorio>();
             services.AddTransient<IUsuarioRepositorio, UsuarioRepositorio>();
             services.AddTransient<IPerfilRepositorio, PerfilRepositorio>();
             services.AddTransient<ISistemaRepositorio, SistemaRepositorio>();
