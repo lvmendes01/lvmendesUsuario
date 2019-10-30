@@ -46,8 +46,8 @@ namespace LoginApi
                     },
                     License = new Microsoft.OpenApi.Models.OpenApiLicense
                     {
-                        Name = "github",
-                        Url = new Uri("https://github.com/lvmendes01"),
+                        Name = "github Fontes",
+                        Url = new Uri("https://github.com/lvmendes01/lvmendesUsuario"),
                     }
                 });
             });
@@ -81,7 +81,7 @@ namespace LoginApi
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API USUARIO");
             });
 
             app.UseSwagger();

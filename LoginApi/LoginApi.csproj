@@ -5,8 +5,13 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\MicroServicos\lvmendesMicrosServicos\LoginApi\LoginApi.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netcoreapp3.0\LoginApi.xml</DocumentationFile>
+    <OutputPath>bin\Debug\netcoreapp3.0\</OutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp3.0\LoginApi.xml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
@@ -23,6 +28,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Lvmendes.Repositorios\Lvmendes.Repositorios.csproj" />
     <ProjectReference Include="..\lvmendes.Servico\lvmendes.Servicos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LoginApi.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
