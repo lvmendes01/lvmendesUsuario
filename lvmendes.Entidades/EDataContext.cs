@@ -7,8 +7,6 @@ namespace lvmendes.Entidades
 {
     public class EFDataContext : DbContext
     {
-        public DbSet<Usuario> Departments { get; set; }
-
         public DbSet<Sistema> Sistemas { get; set; }
         public DbSet<Perfil> Perfils { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }

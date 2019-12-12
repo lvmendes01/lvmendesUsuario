@@ -33,9 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProdutoApi", "..\lvmendesPr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginApi", "LoginApi\LoginApi.csproj", "{753C12C9-7270-486C-910E-5B46049628D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsuarioTestes", "UsuarioTestes\UsuarioTestes.csproj", "{D3130768-F853-4B23-B831-CEC3981E7CAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsuarioTestes", "UsuarioTestes\UsuarioTestes.csproj", "{D3130768-F853-4B23-B831-CEC3981E7CAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsuaioWeb", "UsuaioWeb\UsuaioWeb.csproj", "{7DCB7529-6C30-4B88-9B8A-285F8FD78344}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsuarioWeb", "UsuaioWeb\UsuarioWeb.csproj", "{7DCB7529-6C30-4B88-9B8A-285F8FD78344}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

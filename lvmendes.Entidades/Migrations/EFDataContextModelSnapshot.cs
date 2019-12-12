@@ -15,7 +15,7 @@ namespace lvmendes.Entidades.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -23,6 +23,7 @@ namespace lvmendes.Entidades.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.HasKey("Id");
@@ -34,11 +35,17 @@ namespace lvmendes.Entidades.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long?>("AutorizacoesId");
+                    b.Property<long?>("AutorizacoesId")
+                        .HasColumnType("bigint");
 
-                    b.Property<long?>("SistemaId");
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("SistemaId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -53,9 +60,11 @@ namespace lvmendes.Entidades.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -66,13 +75,17 @@ namespace lvmendes.Entidades.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long?>("AutorizacoesId");
+                    b.Property<long?>("AutorizacoesId")
+                        .HasColumnType("bigint");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Senha");
+                    b.Property<string>("Senha")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -83,7 +96,7 @@ namespace lvmendes.Entidades.Migrations
 
             modelBuilder.Entity("lvmendes.Entidades.Perfil", b =>
                 {
-                    b.HasOne("lvmendes.Entidades.Autorizacoes")
+                    b.HasOne("lvmendes.Entidades.Autorizacoes", null)
                         .WithMany("Perfils")
                         .HasForeignKey("AutorizacoesId");
 

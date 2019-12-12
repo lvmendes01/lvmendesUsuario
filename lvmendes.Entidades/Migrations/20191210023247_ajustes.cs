@@ -1,9 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace lvmendes.Entidades.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class ajustes : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +15,7 @@ namespace lvmendes.Entidades.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
+                        .Annotation("SqlServer:Identity", "1, 1")
                 },
                 constraints: table =>
                 {
@@ -29,7 +28,7 @@ namespace lvmendes.Entidades.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -43,7 +42,7 @@ namespace lvmendes.Entidades.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(nullable: true),
                     Senha = table.Column<string>(nullable: true),
                     AutorizacoesId = table.Column<long>(nullable: true)
@@ -66,8 +65,9 @@ namespace lvmendes.Entidades.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     SistemaId = table.Column<long>(nullable: true),
+                    Nome = table.Column<string>(nullable: true),
                     AutorizacoesId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>

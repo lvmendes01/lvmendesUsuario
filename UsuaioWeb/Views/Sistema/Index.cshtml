@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tela de Gerenciamento de Sistemas</h1>
+
+@Html.TextBox("Nome", null, new { @class = "form-control" })
+
+
+@Html.ActionLink("Cadastrar ", "Create", "Sistema", new { @class = "btn btn-default" }) 
