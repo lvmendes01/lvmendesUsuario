@@ -81,7 +81,7 @@ namespace LoginApi
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API USUARIO");
+                c.SwaggerEndpoint($"/usuarioapi/swagger/v1/swagger.json", "API USUARIO");
             });
 
             app.UseSwagger();
