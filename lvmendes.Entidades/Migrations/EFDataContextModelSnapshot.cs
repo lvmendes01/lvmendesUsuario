@@ -26,7 +26,18 @@ namespace lvmendes.Entidades.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<long>("Perfil")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Sistema")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("UsuarioId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Autorizacao","dbo");
                 });
@@ -38,20 +49,13 @@ namespace lvmendes.Entidades.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long?>("AutorizacoesId")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("SistemaId")
+                    b.Property<long>("SistemaId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AutorizacoesId");
-
-                    b.HasIndex("SistemaId");
 
                     b.ToTable("Perfil","dbo");
                 });
@@ -78,9 +82,6 @@ namespace lvmendes.Entidades.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long?>("AutorizacoesId")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -89,27 +90,14 @@ namespace lvmendes.Entidades.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AutorizacoesId");
-
                     b.ToTable("Usuario","dbo");
                 });
 
-            modelBuilder.Entity("lvmendes.Entidades.Perfil", b =>
+            modelBuilder.Entity("lvmendes.Entidades.Autorizacoes", b =>
                 {
-                    b.HasOne("lvmendes.Entidades.Autorizacoes", null)
-                        .WithMany("Perfils")
-                        .HasForeignKey("AutorizacoesId");
-
-                    b.HasOne("lvmendes.Entidades.Sistema", "Sistema")
-                        .WithMany()
-                        .HasForeignKey("SistemaId");
-                });
-
-            modelBuilder.Entity("lvmendes.Entidades.Usuario", b =>
-                {
-                    b.HasOne("lvmendes.Entidades.Autorizacoes", "Autorizacoes")
-                        .WithMany()
-                        .HasForeignKey("AutorizacoesId");
+                    b.HasOne("lvmendes.Entidades.Usuario", null)
+                        .WithMany("Autorizacoes")
+                        .HasForeignKey("UsuarioId");
                 });
 #pragma warning restore 612, 618
         }

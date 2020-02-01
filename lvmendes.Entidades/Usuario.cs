@@ -14,6 +14,6 @@ namespace lvmendes.Entidades
         public Int64 Id { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
-        public Autorizacoes Autorizacoes { get; set; }
+        public List<Autorizacoes> Autorizacoes { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using lvmendes.Entidades;
 using lvmendes.Servicos.Interfaces;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,7 +37,9 @@ namespace LoginApi.Controllers
         [Route("Salvar")]
         public ActionResult Salvar([FromBody]Usuario value)
         {
-            return Ok(servico.Salvar(value));
+            var retorno = servico.Salvar(value);
+
+            return Ok(new { response = retorno });
 
         }
         /// <summary>
@@ -55,7 +58,9 @@ namespace LoginApi.Controllers
         [Route("Atualizar")]
         public ActionResult Atualizar([FromBody]Usuario objeto)
         {
-            return Ok(servico.Atualizar(objeto));
+            var retorno = servico.Atualizar(objeto);
+
+            return Ok(new { response = retorno });
 
         }
         /// <summary>

@@ -2,66 +2,60 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using lvmendes.Entidades;
-using lvmendes.Servicos.Interfaces;
-using Microsoft.AspNetCore.Cors;
+using Lvmendes.Cliente.Entidades;
+using Lvmendes.Cliente.Servico.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LoginApi.Controllers
+namespace LvmendesClienteApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SistemaController : ControllerBase
+    public class ClienteController : ControllerBase
     {
-        ISistemaServico servico;
+        IPessoaFisicaServico servico;
 
-        public SistemaController(ISistemaServico _servico)
+        public ClienteController(IPessoaFisicaServico _servico)
         {
             servico = _servico;
         }
 
         /// <summary>
-        /// Lista de Sistemas Disponivel
+        /// Lista de Perfils Disponivel
         /// </summary>
         [HttpGet]
         [Route("Listar")]
-        public IEnumerable<Sistema> Listar()
+        public IEnumerable<PessoaFisica> ListarPessoaFisica()
         {
             return servico.Listar();
         }
         /// <summary>
-        /// Salvar sistemas
+        /// Salvar Perfils
         /// </summary>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Route("Salvar")]
-        public ActionResult Salvar([FromBody]Sistema value)
+        public ActionResult Salvar([FromBody]PessoaFisica value)
         {
             var retorno = servico.Salvar(value);
 
-           return Ok(new { response = retorno });
+            return Ok(new { response = retorno });
 
         }
-      
-
-
         /// <summary>
-        /// Carregar Sistema
+        /// Carregar Perfil
         /// </summary>
         [HttpPost]
         [Route("Carregar")]
-        public ActionResult Carregar([FromBody]long id)
+        public ActionResult CarregarEstado([FromBody]long id)
         {
             return Ok(servico.Carregar(id));
         }
         /// <summary>
-        /// Atualizar Sistema
+        /// Atualizar Perfil
         /// </summary>
         [HttpPost]
         [Route("Atualizar")]
-        public ActionResult Atualizar([FromBody]Sistema objeto)
+        public ActionResult Atualizar([FromBody]PessoaFisica objeto)
         {
             var retorno = servico.Atualizar(objeto);
 
@@ -69,11 +63,11 @@ namespace LoginApi.Controllers
 
         }
         /// <summary>
-        /// Deletar Sistema
+        /// Deletar Perfil
         /// </summary>
         [HttpPost]
         [Route("Delete")]
-        public ActionResult Delete([FromBody]Sistema objeto)
+        public ActionResult Delete([FromBody]PessoaFisica objeto)
         {
             return Ok(servico.Delete(objeto));
 

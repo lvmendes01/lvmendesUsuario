@@ -2,7 +2,7 @@
 
 namespace lvmendes.Entidades.Migrations
 {
-    public partial class ajustes : Migration
+    public partial class atula : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,16 +10,18 @@ namespace lvmendes.Entidades.Migrations
                 name: "dbo");
 
             migrationBuilder.CreateTable(
-                name: "Autorizacao",
+                name: "Perfil",
                 schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SistemaId = table.Column<long>(nullable: false),
+                    Nome = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Autorizacao", x => x.Id);
+                    table.PrimaryKey("PK_Perfil", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,78 +46,51 @@ namespace lvmendes.Entidades.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(nullable: true),
-                    Senha = table.Column<string>(nullable: true),
-                    AutorizacoesId = table.Column<long>(nullable: true)
+                    Senha = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usuario", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Usuario_Autorizacao_AutorizacoesId",
-                        column: x => x.AutorizacoesId,
-                        principalSchema: "dbo",
-                        principalTable: "Autorizacao",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Perfil",
+                name: "Autorizacao",
                 schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SistemaId = table.Column<long>(nullable: true),
-                    Nome = table.Column<string>(nullable: true),
-                    AutorizacoesId = table.Column<long>(nullable: true)
+                    Perfil = table.Column<long>(nullable: false),
+                    Sistema = table.Column<long>(nullable: false),
+                    UsuarioId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Perfil", x => x.Id);
+                    table.PrimaryKey("PK_Autorizacao", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Perfil_Autorizacao_AutorizacoesId",
-                        column: x => x.AutorizacoesId,
+                        name: "FK_Autorizacao_Usuario_UsuarioId",
+                        column: x => x.UsuarioId,
                         principalSchema: "dbo",
-                        principalTable: "Autorizacao",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Perfil_Sistema_SistemaId",
-                        column: x => x.SistemaId,
-                        principalSchema: "dbo",
-                        principalTable: "Sistema",
+                        principalTable: "Usuario",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Perfil_AutorizacoesId",
+                name: "IX_Autorizacao_UsuarioId",
                 schema: "dbo",
-                table: "Perfil",
-                column: "AutorizacoesId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Perfil_SistemaId",
-                schema: "dbo",
-                table: "Perfil",
-                column: "SistemaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Usuario_AutorizacoesId",
-                schema: "dbo",
-                table: "Usuario",
-                column: "AutorizacoesId");
+                table: "Autorizacao",
+                column: "UsuarioId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Perfil",
+                name: "Autorizacao",
                 schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "Usuario",
+                name: "Perfil",
                 schema: "dbo");
 
             migrationBuilder.DropTable(
@@ -123,7 +98,7 @@ namespace lvmendes.Entidades.Migrations
                 schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "Autorizacao",
+                name: "Usuario",
                 schema: "dbo");
         }
     }

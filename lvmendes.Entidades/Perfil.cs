@@ -11,8 +11,7 @@ namespace lvmendes.Entidades
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Int64 Id { get; set; }
-
-        public Sistema Sistema { get; set; }
+        public virtual Int64 SistemaId { get; set; }
         public string Nome { get; set; }
     }
 }

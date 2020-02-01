@@ -12,6 +12,7 @@ namespace lvmendes.Entidades
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Int64 Id { get; set; }
 
-        public List<Perfil> Perfils { get; set; }
+        public Int64 Perfil { get; set; }
+        public Int64 Sistema { get; set; }
     }
 }
