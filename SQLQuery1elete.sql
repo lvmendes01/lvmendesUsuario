@@ -1,0 +1,11 @@
+﻿drop table __EFMigrationsHistory;
+drop table Cardapio;
+drop table Cliente;
+drop table Idioma;
+drop table IdiomaProduto;
+drop table Mesa;
+drop table Produto;
+drop table ProdutoMesa;
+drop table ProdutosCardapio;
+drop table Restaurante;
+drop table Usuario;

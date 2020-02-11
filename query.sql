@@ -1,1 +1,1 @@
-﻿select * from Sistema
+﻿delete from __EF

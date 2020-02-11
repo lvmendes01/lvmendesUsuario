@@ -29,6 +29,15 @@ namespace LvmendesClienteApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", p =>
+                {
+                    p.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
             services.AddControllers();
 
 
@@ -44,8 +53,8 @@ namespace LvmendesClienteApi
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Usuario API",
-                    Description = "API de USUARIO",
+                    Title = "CLIENTE API",
+                    Description = "API de CLIENTE",
                     TermsOfService = new Uri("https://example.com/terms"),
                     Contact = new Microsoft.OpenApi.Models.OpenApiContact
                     {
@@ -74,6 +83,7 @@ namespace LvmendesClienteApi
 
             app.UseHttpsRedirection();
 
+            app.UseCors("AllowAll");
             app.UseRouting();
 
             app.UseAuthorization();
@@ -81,7 +91,7 @@ namespace LvmendesClienteApi
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint($"/swagger/v1/swagger.json", "API USUARIO");
+                c.SwaggerEndpoint($"/swagger/v1/swagger.json", "API CLIENTE");
                 // c.SwaggerEndpoint($"/swagger/v1/swagger.json", "API USUARIO");
             });
             app.UseSwagger();
